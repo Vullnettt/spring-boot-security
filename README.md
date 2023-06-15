@@ -1,0 +1,1 @@
+# Spring Boot 3 with Spring Security 6
