@@ -40,6 +40,8 @@ public class User {
     @Column(name = "credentials_non_expired")
     private boolean credentialsNonExpired;
 
+    @Column(name = "provider_id")
+    private String providerId;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.DETACH)
     @JoinTable(name = "user_role",
