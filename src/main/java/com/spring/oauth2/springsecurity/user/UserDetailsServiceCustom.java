@@ -1,6 +1,8 @@
 package com.spring.oauth2.springsecurity.user;
 
+import com.spring.oauth2.springsecurity.exception.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,6 +28,10 @@ public class UserDetailsServiceCustom implements UserDetailsService {
 
     private UserDetailsCustom getUserDetailsCustom(String username){
         User user = userRepository.findByUsername(username);
+
+        if(ObjectUtils.isEmpty(user)){
+            throw new BaseException(String.valueOf(HttpStatus.BAD_REQUEST), "User not found");
+        }
 
         return new UserDetailsCustom(
                 user.getUsername(),
