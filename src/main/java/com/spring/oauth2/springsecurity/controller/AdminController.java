@@ -9,10 +9,10 @@ import java.security.Principal;
 
 @RestController
 @Slf4j
-@RequestMapping("/admin")
+@RequestMapping("/api/admins")
 public class AdminController {
 
-    @GetMapping("/get")
+    @GetMapping
     public String getAccount(Principal principal){
         log.info(principal.getName() + " access to API /admin");
         return "Welcome back admin : " + principal.getName();

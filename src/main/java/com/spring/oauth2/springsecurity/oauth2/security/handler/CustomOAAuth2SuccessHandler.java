@@ -14,6 +14,6 @@ public class CustomOAAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessH
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-        getRedirectStrategy().sendRedirect(request, response, "/home/index");
+        getRedirectStrategy().sendRedirect(request, response, "/api/auth/home/index");
     }
 }
