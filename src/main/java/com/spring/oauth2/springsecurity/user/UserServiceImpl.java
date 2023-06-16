@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public BaseResponse registerAccount(UserDto userDTO) {
         BaseResponse response = new BaseResponse();
-
+        userDTO.setRole("USER");
         //validate data from client
         validateAccount(userDTO);
 

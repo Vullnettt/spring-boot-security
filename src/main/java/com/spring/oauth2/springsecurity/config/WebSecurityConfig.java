@@ -52,8 +52,8 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests()
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/admin/**").hasAuthority("ADMIN")
-                .requestMatchers("/api/user/**").hasAnyAuthority("USER", "ADMIN")
+                .requestMatchers("/api/admins/**").hasAuthority("ADMIN")
+                .requestMatchers("/api/users/**").hasAnyAuthority("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
